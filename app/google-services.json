@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "775688484827",
+    "firebase_url": "https://apic-73af7.firebaseio.com",
+    "project_id": "apic-73af7",
+    "storage_bucket": "apic-73af7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:775688484827:android:4117a7c2045860cb",
+        "android_client_info": {
+          "package_name": "com.example.cm.socialapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "775688484827-1gc3mul3laclf897jrish1crt4tfn9eb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbSzUuBOUYbyzKt-IERT0pfGypTVj_8HA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.cm.socialapp.Activities.Signup">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="30dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Signup"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:textSize="30dp"
+                android:textColor="#000"/>
+
+            <EditText
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center_horizontal"
+                android:hint="UserName"
+                android:layout_width="250dp"
+                android:layout_height="45dp"
+                android:paddingLeft="20dp"
+                android:background="@drawable/signup_edittext"
+                android:id="@+id/signupActivity_edittext_username"/>
+
+            <EditText
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center_horizontal"
+                android:hint="Password"
+                android:layout_width="250dp"
+                android:layout_height="45dp"
+                android:paddingLeft="20dp"
+                android:background="@drawable/signup_edittext"
+                android:id="@+id/signupActivity_edittext_password"/>
+
+
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:text="Signup"
+                android:background="@drawable/signup_btn"
+                android:textColor="#fff"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/signupActivity_button_signup"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/pink2"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#fff"
+                    android:textSize="20dp"
+                    android:text="Singup with social"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/face"/>
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/twiter"
+                        android:layout_marginLeft="20dp"/>
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+    </android.support.v7.widget.CardView>
+
+
+</android.support.constraint.ConstraintLayout>

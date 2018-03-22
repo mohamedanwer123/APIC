@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.cm.socialapp.Activities.Login">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="17dp"
+            android:textSize="30dp"
+            android:textStyle="italic"
+            android:text="welcome All in Our Home  "
+            android:id="@+id/loginactivity_textview_title"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#aca6a6"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="35dp"
+            android:textSize="18dp"
+            android:textStyle="italic"
+            android:id="@+id/loginactivity_textview_describtion"
+            android:text="Is having effective communication skills important to you? Has poor communication gotten you in trouble or kept you stuck?Employees often face relationship issues with their boss, subordinates, clients and others"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:layout_marginBottom="20dp">
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Learn More"
+                android:textColor="#fff"
+                android:background="@drawable/learn_btn"/>
+
+            <Button
+                android:layout_marginLeft="20dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="SignUp"
+                android:textColor="#fff"
+                android:background="@drawable/join_btn"
+                android:id="@+id/loginactivity_button_Signup"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_marginTop="40dp"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="UserName"
+            android:drawableLeft="@drawable/ic_person_black_24dp"
+            android:drawablePadding="10dp"
+            android:id="@+id/loginactivity_edittext_username"
+            />
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:drawableLeft="@drawable/ic_not_interested_black_24dp"
+            android:drawablePadding="10dp"
+            android:id="@+id/loginactivity_edittext_password"
+            />
+
+
+        <com.spark.submitbutton.SubmitButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Login"
+            android:textColor="#fff"
+            app:sub_btn_background="@color/pink"
+            app:sub_btn_duration="3000"
+            app:sub_btn_line_color="@color/colorPrimary"
+            app:sub_btn_tick_color="@color/pink"
+            android:id="@+id/loginactivity_button_login"
+
+
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>
