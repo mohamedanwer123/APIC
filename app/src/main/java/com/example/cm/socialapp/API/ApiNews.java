@@ -27,39 +27,48 @@ public class ApiNews {
         this.context = context;
     }
 
+
     public ArrayList<newsData> READ_POSTS() {
-        String path = "https://inexpedient-church.000webhostapp.com/chat_read_posts.php";
         final ArrayList<newsData> data = new ArrayList<>();
-        AndroidNetworking.get(path)
-                .setPriority(Priority.HIGH)
-                .build()
-                .getAsJSONArray(new JSONArrayRequestListener() {
-                    @Override
-                    public void onResponse(JSONArray response) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String path = "https://inexpedient-church.000webhostapp.com/chat_read_posts.php";
 
-                        JSONObject jsonObject = null;
-                        try {
-                            data.clear();
+                AndroidNetworking.get(path)
+                        .setPriority(Priority.HIGH)
+                        .build()
+                        .getAsJSONArray(new JSONArrayRequestListener() {
+                            @Override
+                            public void onResponse(JSONArray response) {
 
-                            for (int i = response.length()-1; i >=0 ; i--) {
+                                JSONObject jsonObject = null;
+                                try {
+                                    data.clear();
 
-                                jsonObject = response.getJSONObject(i);
+                                    for (int i = response.length()-1; i >=0 ; i--) {
 
-                                data.add(new newsData(jsonObject.getString("name"),jsonObject.getString("post")));
+                                        jsonObject = response.getJSONObject(i);
+
+                                        data.add(new newsData(jsonObject.getString("name"),jsonObject.getString("post")));
+                                    }
+
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                    Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
                             }
 
+                            @Override
+                            public void onError(ANError error) {
+                                Toast.makeText(context, "error", Toast.LENGTH_SHORT).show();
+                            }
+                        });
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
 
-                    @Override
-                    public void onError(ANError error) {
-                        Toast.makeText(context, "error", Toast.LENGTH_SHORT).show();
-                    }
-                });
+            }
+        }).start();
 
         return data;
     }

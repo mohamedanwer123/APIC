@@ -14,8 +14,16 @@ import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.example.cm.socialapp.Activities.Home;
+import com.example.cm.socialapp.Activities.Signup;
 import com.example.cm.socialapp.Models.MSG;
+import com.example.cm.socialapp.Models.SignupData;
 import com.example.cm.socialapp.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.irozon.sneaker.Sneaker;
 
 import org.json.JSONArray;
@@ -29,6 +37,7 @@ import org.json.JSONObject;
 public class ApiLogin {
 
     Context context;
+    public static String imgprofile;
 
     public ApiLogin(Context context) {
         this.context = context;
@@ -36,7 +45,7 @@ public class ApiLogin {
 
 
 
-    public void LOGIN(final String name, final String password) {
+    /*public void LOGIN(final String name, final String password) {
         String path = "https://inexpedient-church.000webhostapp.com/chat_get_clientInfo.php?username=" + name + "&password=" + password;
 
         AndroidNetworking.get(path)
@@ -77,10 +86,49 @@ public class ApiLogin {
 
                     }
                 });
-    }
+    }*/
 
-    // "Internet"
-    //
+    int flag=0;
+    public void LOGIN(final String name, final String password)
+    {
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        Query query = databaseReference.child("LoginData").orderByChild("name").equalTo(name);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot d : dataSnapshot.getChildren())
+                {
+                    SignupData signupData = d.getValue(SignupData.class);
+
+                    if(name.equals(signupData.getName()) && password.equals(signupData.getPass()))
+                    {
+                        imgprofile = signupData.getImg();
+                        Intent intent = new Intent(context,Home.class);
+                        intent.putExtra("flag","login");
+                        intent.putExtra("name",name);
+                        context.startActivity(intent);
+                        flag=1;
+                    }
+                }
+
+                if(flag==0)
+                {
+                    MSG.msg(context,"authentication","The Data is incorrect", "#383f59", R.drawable.incorect);
+                }
+
+
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
+    }
 
 
 

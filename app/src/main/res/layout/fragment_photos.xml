@@ -11,17 +11,18 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/photos_fragment_camerBtn"
-        android:src="@drawable/camera"
+        android:src="@drawable/cam"
         android:layout_gravity="right"
         android:layout_marginRight="20dp"
-        />
+        app:backgroundTint="#f4f1f1"
 
+        />
 
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/photos_fragment_listview">
 
     </ListView>

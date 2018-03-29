@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f9f5f5"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    >
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/fancy_photo_comment_close"
+        android:layout_gravity="right"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/close_white"
+        app:backgroundTint="#2057bf"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        >
+
+        <EditText
+
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="40dp"
+            android:id="@+id/fancy_photo_comment_comment"
+            android:hint="Write Comment...."
+            android:paddingLeft="20dp"
+            android:textSize="18dp"
+            android:paddingRight="20dp"
+            android:background="@drawable/commentfiled"
+            android:layout_marginTop="20dp"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="-30dp"
+            android:id="@+id/fancy_photo_comment_done"
+            android:src="@drawable/ok"
+            app:backgroundTint="#2057bf"
+            />
+
+    </LinearLayout>
+
+
+    <ListView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:minHeight="400dp"
+        android:id="@+id/fancy_photo_comment_listview"/>
+
+
+
+
+
+
+
+
+
+</LinearLayout>

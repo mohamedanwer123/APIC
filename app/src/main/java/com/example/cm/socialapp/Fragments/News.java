@@ -1,6 +1,7 @@
 package com.example.cm.socialapp.Fragments;
 
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -20,6 +21,7 @@ import com.example.cm.socialapp.Activities.Home;
 import com.example.cm.socialapp.Adapters.news_adapter;
 import com.example.cm.socialapp.Models.newsData;
 import com.example.cm.socialapp.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -37,11 +39,12 @@ News extends Fragment {
     EditText editText;
     FancyShowCaseView fancyShowCaseView;
     ListView listView;
+    CircleImageView circleImageView;
     news_adapter  news_adapter;
     ApiNews apiNews;
     ArrayList<newsData> arrayList;
 
-
+   String flag;
 
     public News() {
 
@@ -56,6 +59,7 @@ News extends Fragment {
         init();
         fancyPost();
         readPost();
+
         return v;
     }
 
@@ -63,6 +67,8 @@ News extends Fragment {
     {
          editText = v.findViewById(R.id.news_fregment_edittext);
          listView = v.findViewById(R.id.news_fregment_listview);
+         circleImageView = v.findViewById(R.id.news_fregment_imgpost);
+        Picasso.get().load(Uri.parse(Home.img)).into(circleImageView);
          apiNews = new ApiNews(getActivity());
          arrayList = new ArrayList<>();
 

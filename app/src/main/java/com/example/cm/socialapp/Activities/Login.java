@@ -30,9 +30,9 @@ import com.spark.submitbutton.SubmitButton;
 public class Login extends AppCompatActivity {
 
     EditText username,password;
-    Button signup;
     SubmitButton login;
     ApiLogin apiLogin;
+    Button signup;
     long times=0;
     //public  static  String clinetname;
 
@@ -54,7 +54,7 @@ public class Login extends AppCompatActivity {
             password.setText(sharedPreferences.getString("pass","enter your password").toString());
         }
 
-        //clinetname = username.getText().toString();
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,12 +62,12 @@ public class Login extends AppCompatActivity {
             }
         });
 
-         signup.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View view) {
-                 startActivity(new Intent(Login.this,Signup.class));
-             }
-         });
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Login.this,Signup.class));
+            }
+        });
 
     }
 
@@ -103,12 +103,12 @@ public class Login extends AppCompatActivity {
 
     public void login()
     {
-        String name = username.getText().toString().toLowerCase().trim();
-        String pass = password.getText().toString().toLowerCase().trim();
+        String name = username.getText().toString();
+        String pass = password.getText().toString();
 
         if(name.length()==0 || pass.length()==0)
         {
-            //Toast.makeText(this, "Please Enter Your Data", Toast.LENGTH_SHORT).show();
+
             MSG.msg(Login.this,"Empty","Please Enter Your Data","#d3d3d3",R.drawable.empty);
         }else
         {
@@ -119,6 +119,9 @@ public class Login extends AppCompatActivity {
             editor.putString("pass",pass);
             editor.apply();
         }
+
+
+       // startActivity(new Intent(Login.this,Home.class));
 
     }
 

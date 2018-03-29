@@ -37,7 +37,7 @@
                 android:id="@+id/signupActivity_edittext_username"/>
 
             <EditText
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:layout_gravity="center_horizontal"
                 android:hint="Password"
                 android:layout_width="250dp"
@@ -46,26 +46,68 @@
                 android:background="@drawable/signup_edittext"
                 android:id="@+id/signupActivity_edittext_password"/>
 
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:hint="Email"
+                android:layout_width="250dp"
+                android:layout_height="45dp"
+                android:paddingLeft="20dp"
+                android:background="@drawable/signup_edittext"
+                android:id="@+id/signupActivity_edittext_email"/>
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:hint="Phone"
+                android:layout_width="250dp"
+                android:layout_height="45dp"
+                android:paddingLeft="20dp"
+                android:background="@drawable/signup_edittext"
+                android:id="@+id/signupActivity_edittext_phone"/>
 
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select Image"
+                    android:textSize="18dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="25dp"
+
+                    />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="50dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/userphoto"
+                    android:id="@+id/signupActivity_image"
+                    />
+
+            </LinearLayout>
             <Button
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:text="Signup"
                 android:background="@drawable/signup_btn"
                 android:textColor="#fff"
-                android:layout_marginBottom="20dp"
                 android:id="@+id/signupActivity_button_signup"
                 />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:background="@color/pink2"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:gravity="center">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -74,7 +116,7 @@
                     android:textSize="20dp"
                     android:text="Singup with social"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"/>
+                   />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -85,13 +127,15 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/face"/>
+                        android:background="@drawable/face"
+                        android:layout_marginTop="-3dp"/>
 
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/twiter"
-                        android:layout_marginLeft="20dp"/>
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="-5dp"/>
 
                 </LinearLayout>
 

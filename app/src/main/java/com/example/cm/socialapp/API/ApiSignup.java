@@ -1,9 +1,12 @@
 package com.example.cm.socialapp.API;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
@@ -12,8 +15,18 @@ import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.example.cm.socialapp.Activities.Home;
+import com.example.cm.socialapp.Activities.Signup;
 import com.example.cm.socialapp.Models.MSG;
+import com.example.cm.socialapp.Models.SignupData;
 import com.example.cm.socialapp.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.irozon.sneaker.Sneaker;
 
 import org.json.JSONArray;
@@ -27,14 +40,14 @@ import org.json.JSONObject;
 public class ApiSignup {
 
     Context context;
-
+   public static String imgprofile;
     public ApiSignup(Context context) {
         this.context = context;
     }
 
 
 
-    public void SIGNUP(final String name, String pass) {
+  /*  public void SIGNUP(final String name, String pass) {
         String path = "https://inexpedient-church.000webhostapp.com/chat_insert_clientInfo.php";
 
         AndroidNetworking.post(path)
@@ -74,6 +87,51 @@ public class ApiSignup {
 
                     }
                 });
+    }*/
+
+
+
+    public void SIGNUP(final String name, final String pass , final String email , final String phone , final String img)
+    {
+
+        final ProgressDialog progressDialog = new ProgressDialog(context);
+        progressDialog.setCancelable(false);
+        progressDialog.setProgressStyle(0);
+        progressDialog.setTitle("Data In Uploading");
+
+
+            final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+            StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+
+            storageReference.child("Login/"+System.currentTimeMillis()+".jpg").putFile(Uri.parse(img)).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                    SignupData signupData = new SignupData(name,pass,email,phone,taskSnapshot.getDownloadUrl().toString());
+                    databaseReference.child("LoginData").push().setValue(signupData);
+                    progressDialog.dismiss();
+                    imgprofile = taskSnapshot.getDownloadUrl().toString();
+                    Intent intent = new Intent(context,Home.class);
+                    intent.putExtra("flag","signup");
+                    intent.putExtra("name",name);
+                    context.startActivity(intent);
+                }
+            }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                    progressDialog.show();
+                    progressDialog.setMax((int) taskSnapshot.getBytesTransferred()*100);
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    MSG.msg(context,"Internet","Not Connection with Internet", "#e91e63", R.drawable.error);
+                }
+            });
+
+
+
     }
 
 

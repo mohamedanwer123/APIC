@@ -14,7 +14,7 @@
         app:backgroundTint="#ffffff"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
-        android:id="@+id/fancy_btn_close"/>
+        android:id="@+id/fancy_photo_btn_close"/>
 
 
     <TextView
@@ -54,26 +54,53 @@
                 android:textColorHint="#000"
                 android:drawablePadding="20dp"
                 android:background="@drawable/post_edittext2"
-                android:id="@+id/fancy_edittext"
+                android:id="@+id/fancy_photo_edittext"
                 android:layout_marginTop="10dp"
                 />
 
             <ImageView
                 android:layout_width="300dp"
                 android:layout_height="250dp"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:id="@+id/fancy_photo_image"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="15dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    app:civ_border_color="#000"
+                    app:civ_border_width="2dp"
+                    android:src="@drawable/camer_btn"
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/fancy_photo_camera"/>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    app:civ_border_color="#000"
+                    app:civ_border_width="2dp"
+                    android:src="@drawable/gallery"
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/fancy_photo_gallery"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
                 android:background="@drawable/post_btn"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="10dp"
                 android:text="Post"
                 android:textColor="#fff"
-                android:id="@+id/fancy_btn_Post"/>
+                android:id="@+id/fancy_photo_btn_Post"/>
+
+
+            </LinearLayout>
+
 
         </LinearLayout>
 

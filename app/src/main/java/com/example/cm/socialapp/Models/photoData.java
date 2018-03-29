@@ -6,14 +6,28 @@ package com.example.cm.socialapp.Models;
 
 public class photoData {
 
-    String name,describtion,url;
+    String name,describtion,url,comment,like,userimage;
 
-    public photoData(String name, String describtion, String url) {
+
+    public photoData(){}
+
+    public photoData(String name, String describtion, String url,String comment , String like , String userimage) {
 
         this.name = name;
         this.describtion = describtion;
         this.url = url;
+        this.comment = comment;
+        this.like = like;
+        this.userimage = userimage;
 
+    }
+
+    public String getUserimage() {
+        return userimage;
+    }
+
+    public void setUserimage(String userimage) {
+        this.userimage = userimage;
     }
 
     public String getName() {
@@ -38,5 +52,21 @@ public class photoData {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String getLike() {
+        return like;
+    }
+
+    public void setLike(String like) {
+        this.like = like;
     }
 }
